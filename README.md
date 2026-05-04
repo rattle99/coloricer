@@ -4,51 +4,63 @@
 [![Python](https://img.shields.io/pypi/pyversions/colorice?style=for-the-badge&logo=python&logoColor=white&color=bd93f9)](https://pypi.org/project/colorice/)
 [![License](https://img.shields.io/badge/license-GPL--3.0-bd93f9?style=for-the-badge)](LICENSE)
 
-Colorice is a modern alternative to pywal that uses Oklab color space for perceptually accurate color extraction, generates multiple mood variants (vibrant, muted, warm, cool) to preview and select from, enforces WCAG contrast ratios, and applies schemes across your full desktop rice via a pywal-compatible template engine(yes existing pywal templates work) with color manipulation filters.
+**A modern alternative to pywal — wallpaper-driven Linux desktop themes, perceptually accurate.**
+
+- Color extraction in **Oklab** (perceptually uniform), not RGB/HSL — equal numeric steps actually look equal, so palettes feel harmonious
+- **WCAG contrast enforcement** — foregrounds at 4.5:1 (AA) against bg, no washed-out palettes
+- **Pywal-compatible templates** — existing pywal templates work as-is
+- **Oklab manipulation filters** — derive shades inside templates: `{color4.lighten_20}`, `.darken_15`, `.saturate_10`
+- **22 bundled templates** with live-reload hooks (kitty, alacritty, hyprland, sway, i3, polybar, waybar, dunst, mako, rofi, swaylock, zellij, neovim, vim, cava, …)
 
 ### 📸 In Action
 <p align="center">
-  <img width="99%" alt="Hero" src="https://github.com/user-attachments/assets/39fe3af7-aea9-4107-b697-b3ec0b3cb5e2" />
+  <img width="99%" alt="Wallpaper on the left and a desktop themed by colorice on the right — kitty, neovim, polybar all matching the wallpaper's palette" src="https://github.com/user-attachments/assets/39fe3af7-aea9-4107-b697-b3ec0b3cb5e2" />
 </p>
 <br><br>
 
 <details>
   <summary>More Examples! ✨ </summary>
-  
+
   <p align="center">
-    <img width="49%" alt="image3" src="https://github.com/user-attachments/assets/d1a260b9-b547-4fe6-97c7-5c6243deb82b" />
-    <img width="49%" alt="image1" src="https://github.com/user-attachments/assets/cc4babb2-9e72-4a1a-a45c-c539d9617de9" />
+    <img width="49%" alt="Desktop themed by colorice — example 3" src="https://github.com/user-attachments/assets/d1a260b9-b547-4fe6-97c7-5c6243deb82b" />
+    <img width="49%" alt="Desktop themed by colorice — example 1" src="https://github.com/user-attachments/assets/cc4babb2-9e72-4a1a-a45c-c539d9617de9" />
   </p>
-  
+
   <p align="center">
-    <img width="49%" alt="image4" src="https://github.com/user-attachments/assets/fdabeb25-ac64-483e-9bdd-8eebec100fb4" />
-    <img width="49%" alt="image2" src="https://github.com/user-attachments/assets/9f8480f9-303e-422f-b470-34b2f4d26154" />
+    <img width="49%" alt="Desktop themed by colorice — example 4" src="https://github.com/user-attachments/assets/fdabeb25-ac64-483e-9bdd-8eebec100fb4" />
+    <img width="49%" alt="Desktop themed by colorice — example 2" src="https://github.com/user-attachments/assets/9f8480f9-303e-422f-b470-34b2f4d26154" />
   </p>
   <p align="center"><em>From image → a complete desktop theme</em></p>
-  <p></p>
   <br><br>
-  
-   
+
   <p align="center">
-    <img width="49%" alt="Monochrome_A" src="https://github.com/user-attachments/assets/74c87089-565d-4318-9ae6-7eae472851b5" />
-    <img width="49%" alt="Monochrome_B" src="https://github.com/user-attachments/assets/a1483904-12a7-4f7c-b3ae-ca6aae8dce0f" />
+    <img width="49%" alt="Theme generated from a mostly monochrome image, foreground still legible" src="https://github.com/user-attachments/assets/74c87089-565d-4318-9ae6-7eae472851b5" />
+    <img width="49%" alt="Theme generated from a flat-tone image, foreground still legible" src="https://github.com/user-attachments/assets/a1483904-12a7-4f7c-b3ae-ca6aae8dce0f" />
   </p>
   <p align="center"><em>Respects contrast ratios even for palettes sourced from mostly monochrome or flat images.</em></p>
-  <p></p>
   <br><br>
-  
+
   <p align="center">
-    <img width="49%" alt="2026-05-02_05-50" src="https://github.com/user-attachments/assets/15af6d3e-0110-4ee5-ae5c-c51b739596e6" />
-    <img width="49%" alt="2026-05-02_05-50_1" src="https://github.com/user-attachments/assets/d01bc890-d2d2-4f92-91b4-9dfc4e3e5733" />
+    <img width="49%" alt="Vivid palette extracted from a richly colored wallpaper" src="https://github.com/user-attachments/assets/15af6d3e-0110-4ee5-ae5c-c51b739596e6" />
+    <img width="49%" alt="Vivid palette extracted from another richly colored wallpaper" src="https://github.com/user-attachments/assets/d01bc890-d2d2-4f92-91b4-9dfc4e3e5733" />
   </p>
   <p align="center"><em>Picks a rich variety of colours for your palette given a rich and vibrant image.</em></p>
-  <p></p>
   <br><br>
 </details>
 
+## How it compares
+
+| Feature | colorice | pywal | wallust | matugen |
+|---|---|---|---|---|
+| Color space | **Oklab** | RGB/HSL | LCH | HCT |
+| Contrast enforcement | ✅ WCAG AA | ❌ | ✅ | ❌ |
+| Pywal-compatible templates | ✅ | ✅ | partial | ❌ |
+| Color manipulation in templates | ✅ Oklab filters | ❌ | ✅ | ❌ |
+| Mood variants | ✅ (4) | ❌ | ❌ | ❌ |
+
 ## Install
 
-Requires Python 3.11+.
+Requires Python 3.11+. Works anywhere Python runs — the bundled templates target Linux WMs and editors, but the core engine (extract → template → write) is platform-agnostic. macOS/Windows users can use the terminal/editor templates as-is and write their own for anything else (CSS variables, theme files, design palettes — colorice doesn't care what's in the template).
 
 ```bash
 pipx install colorice
@@ -60,55 +72,66 @@ Or with pip:
 pip install colorice
 ```
 
-## Quick start
+Upgrade later:
 
 ```bash
-# Install default templates for common tools
+pipx upgrade colorice
+```
+
+Run `colorice --help` for the full flag list.
+
+## Quick start
+
+> **Coming from pywal?** Setup is the same — uncomment the templates you want, point your apps at the rendered files. Existing pywal templates work in colorice as-is.
+
+**1. Install bundled templates and starter config**
+
+```bash
 colorice --init
-
-# Generate a scheme and apply to your configured tools
-colorice ~/wallpapers/sunset.jpg --apply
 ```
 
-This will:
-1. Extract dominant colors using over-cluster + farthest-first diversity selection
-2. Generate 4 palette variants (vibrant, muted, warm, cool)
-3. Preview them in your terminal — pick one
-4. Write the scheme to `~/.local/share/colorice/colors.json`
-5. Render configured templates and reload your apps
+Drops 22 templates into `~/.config/colorice/templates/` and a starter `config.toml` into `~/.config/colorice/`.
 
-## Options
+**2. Pick which tools to theme**
 
+Open `~/.config/colorice/config.toml` — every entry ships **commented out** so you opt in only to what you use. Uncomment the entries for your tools.
+
+**3. Wire each app to load the output**
+
+Each template's header (e.g. `~/.config/colorice/templates/kitty.conf`) describes how to integrate that tool. The pattern depends on the app:
+
+- Most apps load colorice's output via an `include`, `source`, `import`, or `colorscheme`/`theme` directive in their own config (kitty, alacritty, hyprland, i3, sway, polybar, waybar, neovim, vim, zellij, …).
+- A few apps without an include mechanism have their full config rewritten by colorice directly (dunst, cava). Nothing to wire — just enable the template.
+
+**4. Generate and apply**
+
+```bash
+colorice ~/wallpapers/sunset.jpg --segment --apply
 ```
-colorice <image> [options]
 
-Extraction:
-  -c, --colors N            Dominant colors to extract (3-16, default: 8)
-  --segment                 Region-aware extraction via Felzenszwalb segmentation
+`--segment` enables region-aware extraction (richer palettes on complex images). Colorice extracts colors, shows 4 palette variants to pick from, then renders every configured template and reloads your apps.
 
-Palette:
-  -m, --moods MOOD[,...]    Mood names (default: vibrant,muted,warm,cool)
-  --min-contrast RATIO      Min fg/bg contrast ratio (default: 7.0)
-  --semantic                Enforce ANSI color name conventions (red=red, etc.)
-  --light                   Light theme
+Re-apply later without re-extracting:
 
-Output:
-  -o, --output PATH         Output JSON path (default: ~/.local/share/colorice/colors.json)
-                            Use -o - for stdout
-  --no-preview              Skip preview, output first palette
-  -q, --quiet               Suppress all output except errors
-
-Templates:
-  -a, --apply               Apply scheme to configured templates
-  --config PATH             Path to config.toml
-  --dry-run                 Preview template output without writing files
-  --no-hooks                Skip post-apply hooks
-  --init                    Install default templates and exit
-
-Info:
-  --list-moods              List available mood names and exit
-  -v, --version             Show version and exit
+```bash
+colorice --apply
 ```
+
+## One-keybind rice refresh
+
+```bash
+#!/usr/bin/env bash
+WALLPAPER=$(find ~/Pictures/Wallpapers -type f | shuf -n 1)
+feh --bg-fill "$WALLPAPER"
+colorice "$WALLPAPER" --apply --no-preview -q
+notify-send "Theme refreshed" "$(basename "$WALLPAPER")"
+```
+
+Bind to `Mod+W` in your WM config and one hotkey:
+- Picks a random wallpaper
+- Generates a fresh scheme
+- Reskins every configured app live (kitty, hyprland, neovim, polybar, dunst, cava, …)
+- Notifies on done
 
 ## Examples
 
@@ -139,38 +162,17 @@ colorice wallpaper.jpg --dry-run --apply
 
 Colorice includes a pywal-compatible template engine. Templates use `{color0}` through `{color15}`, `{background}`, `{foreground}`, `{cursor}`, and `{wallpaper}` placeholders.
 
-### Setup
-
-```bash
-# Install bundled templates for common tools
-colorice --init
-```
-
-This copies templates to `~/.config/colorice/templates/` for: kitty, alacritty, foot, ghostty, wezterm, hyprland, i3, sway, rofi, dunst, mako, waybar, polybar, swaylock, zellij, neovim, vim, cava, xresources, and shell variables.
-
-### Configuration
-
 Edit `~/.config/colorice/config.toml` to map templates to output paths:
 
 ```toml
 [[templates]]
 name = "kitty"
-input = "kitty.conf"
-output = "~/.config/kitty/current-theme.conf"
-hook = "killall -USR1 kitty"
-
-[[templates]]
-name = "hyprland"
-input = "hyprland-colors.conf"
-output = "~/.config/hypr/colorice-colors.conf"
+input = "kitty.conf"                              # filename in ~/.config/colorice/templates/
+output = "~/.config/kitty/current-theme.conf"     # absolute path where the rendered file goes
+hook = "killall -USR1 kitty"                      # optional shell command after render
 ```
 
-Then add the include directive in your app config (one-time setup):
-- Kitty: `include ~/.config/kitty/current-theme.conf`
-- Alacritty: `import = ["~/.config/alacritty/colorice-theme.toml"]`
-- Hyprland: `source = ~/.config/hypr/colorice-colors.conf`
-- i3/Sway: `include ~/.config/i3/colorice-colors.conf`
-- See each template file for tool-specific instructions.
+Each template file's header (`~/.config/colorice/templates/<name>.*`) lists how to wire that specific tool.
 
 ### Color manipulation
 
@@ -199,13 +201,18 @@ Format modifiers (always last in the chain):
 
 ## How it works
 
-1. **Extract** — loads the image, resizes for performance, runs KMeans clustering in Oklab color space. Over-clusters to 4x the requested count, then uses farthest-first selection for maximum perceptual diversity. Optionally uses Felzenszwalb segmentation for region-aware extraction.
-2. **Cache** — extraction results are cached by image content hash + params in `~/.cache/colorice/`. Same wallpaper with same settings skips re-extraction.
-3. **Mood transform** — adjusts chroma, lightness, and hue for the selected mood variant.
-4. **Assign roles** — maps colors to 16 ANSI slots. In default (aesthetic) mode, sorts by chroma for wallpaper-matching palettes. In `--semantic` mode, enforces hue-zone mapping (red=slot 1, green=slot 2, etc.).
-5. **Enforce contrast** — binary search on Oklab lightness to meet WCAG contrast ratios against the background.
-6. **Validate** — warns about any ANSI color pairs that are too similar (pairwise Oklab distance check).
-7. **Apply** — renders templates with the scheme and runs post-apply hooks.
+1. **Extract** — KMeans clustering in Oklab color space, with farthest-first selection for perceptual diversity. Optional Felzenszwalb segmentation for region-aware extraction. Results are cached per-image.
+2. **Mood transform** — adjusts chroma/lightness/hue per the selected mood (vibrant/muted/warm/cool).
+3. **Assign roles** — maps colors to 16 ANSI slots, sorted by chroma so the palette tracks the wallpaper's character. Foregrounds enforce WCAG contrast against the background via binary search on Oklab lightness.
+4. **Apply** — renders templates with the scheme and runs post-apply hooks.
+
+## Troubleshooting
+
+- **"No templates configured"** — open `~/.config/colorice/config.toml` and uncomment the tools you want.
+- **Apply runs but apps don't change** — make sure each app's own config has the `include` / `source` / `colorscheme` directive (see step 3 of Quick start, and each template file's header).
+- **Hook fails for systemd-managed apps** — use `systemctl --user restart <app>` instead of `pkill <app>` (systemd will respawn it without your custom flags otherwise).
+- **Picom hook fails on slower machines** — increase the `sleep` value in the picom hook (default `0.5`).
+- **Color8 / comments look dim in some apps** — colorice enforces 4.5:1 against the terminal palette. Some apps bypass the terminal palette and hardcode their own colors (e.g. micro's default monokai theme uses hex values directly). Switch those apps to a colorscheme that uses ANSI named colors (e.g. `set colorscheme simple` in micro).
 
 ## File locations (XDG-compliant)
 
@@ -232,6 +239,8 @@ pip install -e ".[dev]"
 pytest
 ```
 
+Issues, feedback, and PRs welcome at https://github.com/rattle99/colorice/issues.
+
 ## License
 
-GPL-3.0
+GPL-3.0 — see [LICENSE](LICENSE).
